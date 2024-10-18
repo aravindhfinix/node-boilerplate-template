@@ -13,12 +13,26 @@
   "license": "MIT",
   "keywords": [
     "node",
+    "nodejs",
     "boilerplate",
     "template",
+    "express",
     "socket",
-    "mongoose",
+    "socket.io",
     "mongodb",
-    "express"
+    "mongoose",
+    "api",
+    "backend",
+    "rest-api",
+    "crud",
+    "authentication",
+    "authorization",
+    "websocket",
+    "environment-variables",
+    "dotenv",
+    "ready-to-go",
+    "backend-setup",
+    "boilerplate-template"
   ],
   "dependencies": {
     "fs-extra": "^10.0.0"
