@@ -1,0 +1,35 @@
+{
+  "name": "node-boilerplate-template",
+  "version": "1.0.1",
+  "description": "A node boilerplate template with built-in support for socket and MongoDB using Mongoose.",
+  "main": "install.js",
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "bin": {
+    "node-boilerplate-template": "install.js"
+  },
+  "author": "Aravindh",
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "boilerplate",
+    "template",
+    "socket",
+    "mongoose",
+    "mongodb",
+    "express"
+  ],
+  "dependencies": {
+    "fs-extra": "^10.0.0"
+  },
+  "files": [
+    "template/**/*",
+    "install.js",
+    ".env.sample",
+    "template/.gitignore",
+    "template/.babelrc",
+    "template/.env",
+    "template/.env-sample"
+  ]
+}

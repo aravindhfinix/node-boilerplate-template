@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Terminal Logs</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #000000;
+            color: #00FF00;
+            padding: 20px;
+            font-size: 11px;
+        }
+
+        .log-entry {
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+        }
+
+        .timestamp {
+            color: #FFFF00;
+        }
+
+        .info {
+            color: #00FF00;
+        }
+
+        .error {
+            color: #FF0000;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Terminal Logs</h1>
+    <div id="logs"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="logs.js"></script>
+</body>
+
+</html>
