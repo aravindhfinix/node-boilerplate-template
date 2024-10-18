@@ -1,4 +1,4 @@
-# Node Boilerplate Template
+# Ready-to-go-node-template
 
 A complete Node.js boilerplate template with built-in support for **Socket.io** and **MongoDB** (via Mongoose). This template helps you quickly set up a modern Node.js server with environment configuration and essential middleware.
 
@@ -22,7 +22,7 @@ A complete Node.js boilerplate template with built-in support for **Socket.io** 
 Use `npx` to quickly clone the boilerplate template into your project directory:
 
 ```bash
-npx node-boilerplate-template
+npx ready-to-go-node-template
 ```
 
 ### Step 2: Install Dependencies

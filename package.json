@@ -1,5 +1,5 @@
 {
-  "name": "node-boilerplate-template",
+  "name": "ready-to-go-node-template",
   "version": "1.0.1",
   "description": "A node boilerplate template with built-in support for socket and MongoDB using Mongoose.",
   "main": "install.js",
@@ -7,7 +7,7 @@
     "postinstall": "node install.js"
   },
   "bin": {
-    "node-boilerplate-template": "install.js"
+    "ready-to-go-node-template": "install.js"
   },
   "author": "Aravindh",
   "license": "MIT",
