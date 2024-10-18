@@ -45,5 +45,9 @@
     "template/.babelrc",
     "template/.env",
     "template/.env-sample"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aravindhfinix/node-boilerplate-template.git"
+  }
 }
