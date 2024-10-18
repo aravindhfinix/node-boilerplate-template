@@ -1,6 +1,7 @@
 {
   "name": "ready-to-go-node-template",
   "version": "1.0.2",
+  "private": true,
   "description": "A node boilerplate template with built-in support for socket and MongoDB using Mongoose.",
   "main": "install.js",
   "scripts": {
