@@ -1,6 +1,6 @@
 import socketIO from "socket.io";
 import { helper } from "../utils/socket.io-helper";
-import { consoleLoggerRedirector } from "./console-logger";
+import { consoleLoggerRedirection } from "./console-logger";
 
 export default class SocketConfig {
     constructor(server) {
@@ -22,7 +22,7 @@ export default class SocketConfig {
 
         this.socket = socketIO(server, socketParams);
         helper.setIo(this.socket);
-        consoleLoggerRedirector.watchLogfile(this.socket);
+        consoleLoggerRedirection.watchLogFile(this.socket);
     }
 
 

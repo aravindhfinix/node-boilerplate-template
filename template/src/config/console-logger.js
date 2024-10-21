@@ -7,7 +7,7 @@ const logDirectory = 'logs';
 const logFileName = 'combined.log';
 const logFilePath = path.resolve(process.cwd(), logDirectory, logFileName);
 
-class ConsoleLoggerRedirector {
+class ConsoleLoggerRedirection {
   static stripAnsi(str) {
     if (typeof str === 'string') {
       return str.replace(/\u001B\[[0-9;]*[JKmsu]/g, '');
@@ -43,13 +43,13 @@ class ConsoleLoggerRedirector {
     const originalConsole = { ...console };
 
     console.log = (...args) => {
-      const cleanedArgs = args.map(arg => ConsoleLoggerRedirector.stripAnsi(ConsoleLoggerRedirector.stringifyIfObject(arg)));
+      const cleanedArgs = args.map(arg => ConsoleLoggerRedirection.stripAnsi(ConsoleLoggerRedirection.stringifyIfObject(arg)));
       logger.info(cleanedArgs.join(' '));
       originalConsole.log.apply(console, args); // Use apply to call the original function
     };
 
     console.error = (...args) => {
-      const cleanedArgs = args.map(arg => ConsoleLoggerRedirector.stripAnsi(ConsoleLoggerRedirector.stringifyIfObject(arg)));
+      const cleanedArgs = args.map(arg => ConsoleLoggerRedirection.stripAnsi(ConsoleLoggerRedirection.stringifyIfObject(arg)));
       logger.error(cleanedArgs.join(' '));
       originalConsole.error.apply(console, args); // Use apply to call the original function
     };
@@ -61,7 +61,7 @@ class ConsoleLoggerRedirector {
 
   }
 
-  watchLogfile(io) {
+  watchLogFile(io) {
     const logFilePath = path.resolve(process.cwd(), 'logs/combined.log');
 
     if (!fs.existsSync(logFilePath)) {
@@ -94,7 +94,7 @@ class ConsoleLoggerRedirector {
   }
 }
 
-export const consoleLoggerRedirector = new ConsoleLoggerRedirector();
+export const consoleLoggerRedirection = new ConsoleLoggerRedirection();
 
 
 export const processAndSortLogs = (data) => {
@@ -105,14 +105,14 @@ export const processAndSortLogs = (data) => {
         const [timestamp, level, ...messageArr] = line.split(' ');
         const message = messageArr.join(' ');
 
-        if (message.startsWith('{') && message.endsWith('}')) {
+        if (isValidJSON(message)) {
           const parsedMessage = JSON.parse(message);
           return { timestamp, level, message: parsedMessage };
         } else {
-          return { timestamp, level, message };
+          return { timestamp, level, message }; // Return the message as a string if it's not JSON
         }
       } catch (err) {
-        return line;
+        return { error: 'Invalid log format', line }; // Return the raw line in case of error
       }
     });
 
@@ -120,4 +120,14 @@ export const processAndSortLogs = (data) => {
 
   // Return only the last 600 logs
   return logs.slice(-600);
+};
+
+// Utility function to check if a string is valid JSON
+export const isValidJSON = (str) => {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch (e) {
+    return false;
+  }
 };

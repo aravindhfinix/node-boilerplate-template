@@ -1,7 +1,7 @@
 import BaseConfig from "../config/base-config";
 import userRouter from "../modules/v1/user/routes";
 import adminRouter from "../modules/v1/admin/routes";
-import fileRouter from "../modules/v1/file-upload/routes/fileupload-routes"
+import fileRouter from "../modules/v1/file-upload/routes/file-upload-routes"
 import logsRouter from "../modules/v1/log/routes/index"
 import basicAuth from 'express-basic-auth';
 import { responseHandler } from "../utils/response-handler";

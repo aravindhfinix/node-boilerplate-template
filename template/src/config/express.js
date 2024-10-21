@@ -33,7 +33,9 @@ export default class ExpressConfig {
     constructor() {
         this.app = express();
         this.app.use(apiLogger.createLog)
-        this.app.set('trust proxy', true);
+        if (process.env.HTTPS === 'true') {
+            this.app.set('trust proxy', true);
+        }
         this.app.use(helmet());
         this.app.use(xss());
         this.app.use(cors(corsOptions));
