@@ -4,7 +4,7 @@ const fs = require('fs');
 
 class FileRemoveController {
 
-  
+
 
     /**
      * @description  API for File delete
@@ -15,7 +15,7 @@ class FileRemoveController {
     async delete(req, res) {
 
         try {
-            const imagePath = req.body.imagePath.split(`${process.env.MONGODB_HOST}/`)[1]
+            const imagePath = req.query.imagePath.split(`${process.env.MONGODB_HOST}/`)[1]
             let filePath = (`/var/www/html/${imagePath}`);
 
             if (!fs.existsSync(filePath)) {
